@@ -6,8 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -18,7 +16,7 @@ import java.util.Set;
 public class Consumer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "consumer_id")
+    @Column
     private Long id;
 
     @Column(name = "first_name", nullable = false)
@@ -30,9 +28,9 @@ public class Consumer {
     @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name="primary_address_id")
+    @Column(name = "primary_address_id")
     private Long primaryAddressId;
 
-    @Column(name="mail_address_id")
+    @Column(name = "mail_address_id")
     private Long mailAddressId;
 }

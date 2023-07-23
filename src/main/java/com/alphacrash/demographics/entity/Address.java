@@ -32,4 +32,7 @@ public class Address {
 
     @Column(name = "consumer_id", nullable = false)
     private Long consumerId;
+
+    @Column(name = "address_type", nullable = false)
+    private String addressType;
 }
