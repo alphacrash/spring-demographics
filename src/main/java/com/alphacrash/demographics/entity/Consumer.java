@@ -6,19 +6,20 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "userdata")
-public class User {
+@Table(name = "consumers")
+public class Consumer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    @Column(name = "consumer_id")
+    private Long id;
 
     @Column(name = "first_name", nullable = false)
     private String firstName;
@@ -29,9 +30,9 @@ public class User {
     @Column(name = "email", nullable = false)
     private String email;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Address> addresses = new ArrayList<>();
+    @Column(name="primary_address_id")
+    private Long primaryAddressId;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Income> incomes = new ArrayList<>();
+    @Column(name="mail_address_id")
+    private Long mailAddressId;
 }
